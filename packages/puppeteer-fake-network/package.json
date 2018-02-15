@@ -1,5 +1,5 @@
 {
-  "name": "@marduke182/puppeter-fake-network",
+  "name": "@marduke182/puppeteer-fake-network",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,5 @@
   "dependencies": {
     "minimatch": "^3.0.4"
   },
-  "engines": { "node": ">=8.0.0" },
-  "devDependencies": {
-    "jest": "^22.3.0"
-  }
+  "engines": { "node": ">=8.0.0" }
 }

@@ -76,6 +76,10 @@ class FakeNetwork {
     });
   }
 
+  restore() {
+    this.handlers = [];
+  }
+
 }
 
 async function create(puppeteerPage) {

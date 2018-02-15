@@ -159,3 +159,21 @@ test('should throw an error if register a handler response', () => {
     url: googleUrl,
   })).toThrow(responseMissingError);
 });
+
+
+test('should restore network', () => {
+  const body = 'Hello World';
+
+  fakeNetwork.respondWith({
+    url: googleUrl,
+    response: {
+      body
+    },
+  });
+
+  fakeNetwork.restore();
+
+  const { respondMock } = simulateRequest(fakeNetwork, googleUrl);
+
+  expect(respondMock).not.toBeCalled();
+});

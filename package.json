@@ -4,11 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.2.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.3.0",
     "lerna": "^2.8.0"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/packages/puppeteer-fake-network/src",
+      "<rootDir>/packages/puppeteer-jest/src"
+    ],
+    "verbose": true
   }
 }
