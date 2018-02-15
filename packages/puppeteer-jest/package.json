@@ -3,12 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "PuppeteerEnvironment.js",
-  "scripts": {
-    "clean": "rm -rf ./lib",
-    "build:js": "../../node_modules/.bin/babel src --out-dir lib --ignore tests",
-    "build": "npm run clean && npm run build:js",
-    "prepublish": "npm run build"
-  },
+  "scripts": {},
   "author": "",
   "license": "ISC",
   "dependencies": {
