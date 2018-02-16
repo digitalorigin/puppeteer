@@ -1,5 +1,5 @@
 {
-  "name": "puppeteer-test-utils",
+  "name": "@digital-origin/puppeteer-test-utils",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "@marduke182/puppeteer-jest",
+  "name": "@digital-origin/puppeteer-jest",
   "version": "1.0.0",
   "description": "",
   "main": "PuppeteerEnvironment.js",
