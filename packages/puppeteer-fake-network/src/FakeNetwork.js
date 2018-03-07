@@ -1,4 +1,10 @@
-const minimatch = require("minimatch");
+const minimatch = require('minimatch');
+
+function isSameHandler(handler, checkHandler) {
+  const isSameUrl = handler.url === checkHandler.url || minimatch(checkHandler.url, handler.url);
+  const isSameMethod = handler.method === checkHandler.method;
+  return isSameUrl && isSameMethod;
+}
 
 class FakeNetwork {
   static async build(puppeteerPage) {
@@ -22,10 +28,9 @@ class FakeNetwork {
 
   getHandler(url, method) {
     return this.handlers
-      .filter(handler => handler.url === url || minimatch(url, handler.url))
+      .filter(handler => isSameHandler(handler, { url, method }))
       .find(handler => handler.method === method);
   }
-
 
   requestHandler(request) {
     const handler = this.getHandler(request.url(), request.method());
@@ -38,13 +43,12 @@ class FakeNetwork {
       return response(request);
     }
 
-
     if (typeof response === 'string') {
       return request.respond({
         status: 200,
         contentType: 'application/json',
         body: response,
-      })
+      });
     }
 
     const { status = 200, headers = {}, contentType = 'application/json', body } = response;
@@ -54,14 +58,9 @@ class FakeNetwork {
       contentType,
       status,
     });
-
   }
 
-  respondWith({
-                method = 'GET',
-                url,
-                response,
-              } = {}) {
+  respondWith({ method = 'GET', url, response } = {}) {
     if (!url) {
       throw new Error('The url is a mandatory argument');
     }
@@ -69,6 +68,7 @@ class FakeNetwork {
     if (!response) {
       throw new Error('The response is a mandatory argument');
     }
+    this.handlers = this.handlers.filter(handler => !isSameHandler(handler, { url, method })); // remove older handlers
     this.handlers.push({
       url,
       method,
@@ -79,7 +79,6 @@ class FakeNetwork {
   restore() {
     this.handlers = [];
   }
-
 }
 
 async function create(puppeteerPage) {
