@@ -1,6 +1,6 @@
 {
   "name": "@digital-origin/puppeteer-jest",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "main": "PuppeteerEnvironment.js",
   "scripts": {},
