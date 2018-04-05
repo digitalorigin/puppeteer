@@ -1,4 +1,4 @@
-export default function toExist(elementWrapper) {
+module.exports = function toExist(elementWrapper) {
   const pass = elementWrapper.exist();
 
   const contextualInformation = {};

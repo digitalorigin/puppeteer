@@ -1,4 +1,4 @@
-export default function toHaveText(elementWrapper, text) {
+module.exports = function toHaveText(elementWrapper, text) {
   const actualText = elementWrapper.text;
   const selector = elementWrapper.selector;
   const wrapperHtml = elementWrapper.html;

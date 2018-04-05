@@ -1,6 +1,6 @@
-import toExist from './toExist';
-import toHaveText from './toHaveText';
-import toHaveValue from './toHaveValue';
+const toExist = require('./toExist');
+const toHaveText = require('./toHaveText');
+const toHaveValue = require('./toHaveValue');
 
 const customMatchers = {
   toExist,

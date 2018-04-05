@@ -1,5 +1,4 @@
-
-export default function toHaveValue(elementWrapper, expectedValue)  {
+module.exports = function toHaveValue(elementWrapper, expectedValue)  {
   let pass = false;
 
   const value = elementWrapper.value;
