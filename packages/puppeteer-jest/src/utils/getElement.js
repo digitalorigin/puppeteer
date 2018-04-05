@@ -1,0 +1,1 @@
+module.exports = async (page, selector) => await page.$(selector);
