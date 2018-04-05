@@ -40,4 +40,4 @@ Object.keys(customMatchers).forEach(matcherKey => {
   matchers[matcherKey] = matcher;
 });
 
-export default matchers;
+module.exports = matchers;
